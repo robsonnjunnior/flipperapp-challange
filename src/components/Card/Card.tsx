@@ -1,3 +1,10 @@
+import React from 'react';
+import { Button } from 'components';
+import { ICard } from 'models/card/card.model';
+import { ITooltipMenuOptions } from 'models/tooltipMenu/tooltipMenu.model';
+import { currencyFormat, percentFormat } from 'utils/number';
+import TooltipMenu from './components/TooltipMenu';
+
 import {
   Container,
   Header,
@@ -6,18 +13,26 @@ import {
   ItemInfo,
   Footer,
 } from './styles';
-import { ReactComponent as MdMoreVert } from 'assets/img/more_vert.svg';
-import { ICard } from 'models/card/card.model';
-import { currencyFormat, percentFormat } from 'utils/number';
-import { Button } from 'components';
 
-const Card = ({ title, data }: ICard) => {
-  const { cdi, gain, hasHistory, profitability, total } = data;
+const Card = ({ title, data, handleDelete, handleEdit }: ICard) => {
+  const { cdi, gain, hasHistory, profitability, total, id } = data;
+
+  const cardMenuItens: ITooltipMenuOptions[] = [
+    {
+      label: 'Edit',
+      action: () => handleEdit(data),
+    },
+    {
+      label: 'Delete',
+      action: () => handleDelete(id),
+    },
+  ];
+
   return (
     <Container>
       <Header>
         <p>{title}</p>
-        <MdMoreVert />
+        <TooltipMenu options={cardMenuItens} />
       </Header>
       <IvestedValue>
         <p>Valor investido</p>
@@ -42,11 +57,16 @@ const Card = ({ title, data }: ICard) => {
       {hasHistory && (
         <Footer>
           <div className="divider" />
-          <Button label="VER MAIS" />
+          <Button
+            label="VER MAIS"
+            handleClick={() => {
+              console.log('click');
+            }}
+          />
         </Footer>
       )}
     </Container>
   );
 };
 
-export default Card;
+export default React.memo(Card);

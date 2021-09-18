@@ -21,4 +21,15 @@ const DELETE_WEALTH_BY_PK = gql`
   }
 `;
 
-export { ADD_WEALTH_ONE, DELETE_WEALTH_BY_PK };
+const UPDATE_WALTH_BY_PK = gql`
+  mutation EditWealthOne(
+    $pk_columns: wealthSummary_pk_columns_input!
+    $_set: wealthSummary_set_input!
+  ) {
+    update_wealthSummary_by_pk(pk_columns: $pk_columns, _set: $_set) {
+      id
+    }
+  }
+`;
+
+export { ADD_WEALTH_ONE, DELETE_WEALTH_BY_PK, UPDATE_WALTH_BY_PK };

@@ -12,6 +12,11 @@ const routes = [
     component: page.Dashboard,
   },
   {
+    path: '/resume',
+    exact: true,
+    component: page.Resume,
+  },
+  {
     path: '*',
     component: page.NotFound,
   },
