@@ -3,7 +3,7 @@ import { Button } from 'components';
 import { ICard } from 'models/card/card.model';
 import { ITooltipMenuOptions } from 'models/tooltipMenu/tooltipMenu.model';
 import { currencyFormat, percentFormat } from 'utils/number';
-import TooltipMenu from './components/TooltipMenu';
+import TooltipMenu from 'components/TooltipMenu';
 
 import {
   Container,
@@ -29,10 +29,10 @@ const Card = ({ title, data, handleDelete, handleEdit }: ICard) => {
   ];
 
   return (
-    <Container>
+    <Container data-testid="card-wealth-summary">
       <Header>
         <p>{title}</p>
-        <TooltipMenu options={cardMenuItens} />
+        <TooltipMenu data-testid="card-tooltipMenu" options={cardMenuItens} />
       </Header>
       <IvestedValue>
         <p>Valor investido</p>

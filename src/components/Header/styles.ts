@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   width: 100%;
-  min-height: 70px;
+  height: 70px;
   background: linear-gradient(90deg, #3b5cb8, #6d9fff);
 
   nav {

@@ -1,8 +1,0 @@
-1 - Finalizar Layout
-2 - Tipar os componentes
-3 - fazer os testes necessarios
-5 - verificar variacoes das queries
-6 - efetuar deploy
-7 - configurar circleci
-8 - configurar code coverage
-9 - mobile

@@ -49,12 +49,9 @@ export default createGlobalStyle`
 }
 html, body, #root {
   font-family: 'Proxima Nova',sans-serif!important;
+
 }
-#root{
-  width: 100vw;
-  height: 100vh;
-  box-sizing: border-box;
-}
+
 body {
   -webkit-font-smoothing: antialiased;
 }
