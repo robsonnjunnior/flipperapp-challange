@@ -2,7 +2,7 @@
 import Stack from '@mui/material/Stack';
 import ButtonUI from '@mui/material/Button';
 
-import { InputText, Modal } from 'components';
+import { InputText, Checkbox, Modal } from 'components';
 
 import { Form, FormContainer } from './styles';
 
@@ -33,10 +33,10 @@ const FormWealth = ({
         variables: {
           object: {
             ...data,
-            hasHistory: true,
           },
         },
       });
+      onClose();
     } else if (mode === 'EDIT') {
       EditWealthOne({
         variables: {
@@ -45,12 +45,11 @@ const FormWealth = ({
           },
           _set: {
             ...data,
-            hasHistory: true,
           },
         },
       });
+      onClose();
     }
-    onClose();
   };
 
   return (
@@ -65,6 +64,7 @@ const FormWealth = ({
               variant="standard"
               control={control}
               defaultValue={editData?.cdi ?? ''}
+              type="number"
             />
             <InputText
               name="gain"
@@ -72,6 +72,7 @@ const FormWealth = ({
               variant="standard"
               control={control}
               defaultValue={editData?.gain ?? ''}
+              type="number"
             />
             <InputText
               name="profitability"
@@ -79,6 +80,7 @@ const FormWealth = ({
               variant="standard"
               control={control}
               defaultValue={editData?.profitability ?? ''}
+              type="number"
             />
             <InputText
               name="total"
@@ -86,7 +88,17 @@ const FormWealth = ({
               variant="standard"
               control={control}
               defaultValue={editData?.total ?? ''}
+              type="number"
             />
+
+            <Checkbox
+              name="hasHistory"
+              label="Possui historico?"
+              variant="standard"
+              control={control}
+              defaultChecked={editData?.hasHistory ?? false}
+            />
+
             <Stack
               spacing={2}
               direction="row"
