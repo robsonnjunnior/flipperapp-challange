@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Stack from '@mui/material/Stack';
 import ButtonUI from '@mui/material/Button';
@@ -24,10 +25,9 @@ const FormWealth = ({
   const { handleSubmit, control } = useForm();
   const { AddWealthOne } = useCreateWealthSummary();
   const { EditWealthOne } = useUpdateWealthSummary();
-  console.log('form mode', mode);
 
-  const onSubmit = (data: Omit<IWealthSummary, 'id' | 'hasHistory'>) => {
-    console.log('onSubmit data', data);
+  const onSubmit = (data: Omit<IWealthSummary, 'id'>) => {
+    debugger;
     if (mode === 'NEW') {
       AddWealthOne({
         variables: {

@@ -2,8 +2,9 @@
 import CheckboxMUI from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { Controller } from 'react-hook-form';
+import { ICheckbox } from './checkbox.model';
 
-const Checkbox = ({ label, control, name, defaultChecked }: any) => {
+const Checkbox = ({ label, control, name, defaultChecked }: ICheckbox) => {
   if (control) {
     return (
       <FormControlLabel
@@ -12,6 +13,7 @@ const Checkbox = ({ label, control, name, defaultChecked }: any) => {
             render={({ field }) => (
               <CheckboxMUI {...field} defaultChecked={defaultChecked} />
             )}
+            defaultValue={defaultChecked}
             name={name}
             control={control}
           />

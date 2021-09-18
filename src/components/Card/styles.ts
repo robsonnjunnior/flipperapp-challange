@@ -61,6 +61,7 @@ export const ProfiabilityInfo = styled.div`
   width: 100%;
   margin-top: 35px;
 `;
+
 export const ItemInfo = styled.div`
   display: flex;
   justify-content: space-between;
