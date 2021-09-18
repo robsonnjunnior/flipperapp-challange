@@ -1,5 +1,8 @@
 ## Projeto de teste - Fliper
 
+###Link de acesso
+https://fliperchallange.netlify.app/
+
 ---
 ### Pré-Requisitos
 
