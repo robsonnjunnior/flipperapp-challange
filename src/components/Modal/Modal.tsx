@@ -1,4 +1,3 @@
-import React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { IModal } from './modal.model';
@@ -27,4 +26,4 @@ const ModalCustom = ({ open, onClose, children }: IModal) => {
   );
 };
 
-export default React.memo(ModalCustom);
+export default ModalCustom;

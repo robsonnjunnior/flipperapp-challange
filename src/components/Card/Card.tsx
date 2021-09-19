@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from 'components';
 import { ICard } from 'models/card/card.model';
 import { ITooltipMenuOptions } from 'models/tooltipMenu/tooltipMenu.model';
@@ -69,4 +68,4 @@ const Card = ({ title, data, handleDelete, handleEdit }: ICard) => {
   );
 };
 
-export default React.memo(Card);
+export default Card;
