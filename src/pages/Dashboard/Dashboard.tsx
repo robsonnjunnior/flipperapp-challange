@@ -11,10 +11,23 @@ import {
   ItemInfo,
 } from './styles';
 
+import { PacmanLoader } from 'react-spinners';
+
 const Dashboard = () => {
   const { error, loading, data } = useDashboardSummary();
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+        }}
+      >
+        <PacmanLoader color="#3b5cb8" size={40} margin={3} />
+      </div>
+    );
   if (error) return <p>Error :(</p>;
 
   const { aggregate }: IDashboardSummary = data.wealthSummary_aggregate;

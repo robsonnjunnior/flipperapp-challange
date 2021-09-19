@@ -9,6 +9,8 @@ import useDeleteWealthSummary from 'hooks/wealthSummary/useDeleteWealthSummary';
 import useWealthSummary from 'hooks/wealthSummary/useWealthSummary';
 import FormWealth from './components/FormWealth';
 
+import { PacmanLoader } from 'react-spinners';
+
 const Resume = () => {
   const [openModal, setOpenModal] = useState(false);
   const [editData, setEditData] = useState<IWealthSummary | null>(null);
@@ -17,7 +19,18 @@ const Resume = () => {
 
   const { DeleteWealthByPk } = useDeleteWealthSummary();
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+        }}
+      >
+        <PacmanLoader color="#3b5cb8" size={40} margin={3} />
+      </div>
+    );
   if (error) return <p>Error :(</p>;
 
   const { wealthSummary } = data;
