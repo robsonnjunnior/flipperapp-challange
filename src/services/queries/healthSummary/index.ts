@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 const GET_ALL_HEALTH_SUMMARY = gql`
   query GetAllHealthSummary {
-    wealthSummary {
+    wealthSummary(order_by: { id: asc }) {
       cdi
       gain
       hasHistory
