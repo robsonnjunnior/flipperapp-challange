@@ -1,4 +1,4 @@
-import { NavLink, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Container } from './styles';
 import LogoFliper from 'assets/img/logo-fliper.png';
 
@@ -14,14 +14,7 @@ const Header = () => {
           onClick={() => history.push('/')}
         />
         <div className="menu">
-          <NavLink
-            to="/resume"
-            activeStyle={{
-              backgroundColor: 'hsla(0, 0%, 100%, 0.15)',
-            }}
-          >
-            Resumos
-          </NavLink>
+          <Link to="/resume">Resumos</Link>
         </div>
       </nav>
     </Container>
