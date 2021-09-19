@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Stack from '@mui/material/Stack';
 import ButtonUI from '@mui/material/Button';
@@ -43,7 +42,6 @@ const FormWealth = ({
   const { EditWealthOne } = useUpdateWealthSummary();
 
   const onSubmit = (data: Omit<IWealthSummary, 'id'>) => {
-    debugger;
     if (mode === 'NEW') {
       AddWealthOne({
         variables: {

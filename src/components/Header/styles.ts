@@ -28,10 +28,14 @@ export const Container = styled.header`
         align-items: center;
         width: 100%;
         height: 100%;
-        background-color: hsla(0, 0%, 100%, 0.15);
+
         font-size: 16px;
         color: #fff;
         font-weight: 700;
+
+        &:hover {
+          background-color: hsla(0, 0%, 100%, 0.15);
+        }
       }
     }
   }
