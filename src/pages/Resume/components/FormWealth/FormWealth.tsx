@@ -8,12 +8,21 @@ import { InputText, Checkbox, Modal } from 'components';
 import { Form, FormContainer } from './styles';
 
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 import { IFormWealth } from './formWealth.model';
 import { IWealthSummary } from 'models/wealthSummary/wealSummary.model';
 
 import useCreateWealthSummary from 'hooks/wealthSummary/useCreateWealthSummary';
 import useUpdateWealthSummary from 'hooks/wealthSummary/useUpdateWealthSummary';
+
+const schema = yup.object().shape({
+  cdi: yup.string().required(),
+  gain: yup.string().required(),
+  profitability: yup.string().required(),
+  total: yup.string().required(),
+});
 
 const FormWealth = ({
   open,
@@ -22,7 +31,14 @@ const FormWealth = ({
   editData,
   mode,
 }: IFormWealth) => {
-  const { handleSubmit, control } = useForm();
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
   const { AddWealthOne } = useCreateWealthSummary();
   const { EditWealthOne } = useUpdateWealthSummary();
 
@@ -65,6 +81,7 @@ const FormWealth = ({
               control={control}
               defaultValue={editData?.cdi ?? ''}
               type="number"
+              error={(errors.cdi as any)?.message}
             />
             <InputText
               name="gain"
@@ -73,6 +90,7 @@ const FormWealth = ({
               control={control}
               defaultValue={editData?.gain ?? ''}
               type="number"
+              error={(errors.gain as any)?.message}
             />
             <InputText
               name="profitability"
@@ -81,6 +99,7 @@ const FormWealth = ({
               control={control}
               defaultValue={editData?.profitability ?? ''}
               type="number"
+              error={(errors.profitability as any)?.message}
             />
             <InputText
               name="total"
@@ -89,6 +108,7 @@ const FormWealth = ({
               control={control}
               defaultValue={editData?.total ?? ''}
               type="number"
+              error={(errors.total as any)?.message}
             />
 
             <Checkbox
