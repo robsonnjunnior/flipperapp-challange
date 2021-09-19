@@ -37,6 +37,10 @@ export const SummaryCard = styled.div`
   p {
     color: #3b5cb8;
   }
+
+  ${({ theme }) => theme.mediaScreenMax.mobileL`
+    width: 100%;
+  `}
 `;
 
 export const Header = styled.div`
