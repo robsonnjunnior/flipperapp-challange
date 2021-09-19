@@ -1,4 +1,4 @@
-export const currencyFormat = (value: number) => {
+export const currencyFormat = (value = 0) => {
   const formatted = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
@@ -6,7 +6,7 @@ export const currencyFormat = (value: number) => {
   return formatted;
 };
 
-export const percentFormat = (value: number, decimals = 2) => {
+export const percentFormat = (value = 0, decimals = 2) => {
   const formatted = `${value.toFixed(decimals).replace(/0+$/, '')}%`;
   return formatted;
 };
