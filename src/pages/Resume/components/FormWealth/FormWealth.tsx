@@ -1,4 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect } from 'react';
 import Stack from '@mui/material/Stack';
 import ButtonUI from '@mui/material/Button';
 
@@ -38,8 +40,8 @@ const FormWealth = ({
     resolver: yupResolver(schema),
   });
 
-  const { AddWealthOne } = useCreateWealthSummary();
-  const { EditWealthOne } = useUpdateWealthSummary();
+  const { AddWealthOne, successAdd, loadingAdd } = useCreateWealthSummary();
+  const { EditWealthOne, successEdit, loadingEdit } = useUpdateWealthSummary();
 
   const onSubmit = (data: Omit<IWealthSummary, 'id'>) => {
     if (mode === 'NEW') {
@@ -62,9 +64,12 @@ const FormWealth = ({
           },
         },
       });
-      onClose();
     }
   };
+
+  useEffect(() => {
+    if (successAdd || successEdit) onClose();
+  }, [successAdd, successEdit]);
 
   return (
     <Modal open={open} onClose={onClose}>
@@ -129,7 +134,11 @@ const FormWealth = ({
               <ButtonUI variant="outlined" onClick={onCancel}>
                 Cancelar
               </ButtonUI>
-              <ButtonUI variant="contained" type="submit">
+              <ButtonUI
+                variant="contained"
+                type="submit"
+                disabled={loadingAdd || loadingEdit}
+              >
                 Salvar
               </ButtonUI>
             </Stack>
