@@ -1,6 +1,9 @@
 ## Projeto de teste - Fliper
 
 ### Link de acesso
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a4578d90-f1a2-49f3-a576-732b1ce131d7/deploy-status)](https://app.netlify.com/sites/fliperchallange/deploys)
+
 https://fliperchallange.netlify.app/
 
 ---
